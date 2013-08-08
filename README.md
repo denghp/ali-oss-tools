@@ -9,9 +9,9 @@
 ### 开发步骤
 Check out代码，编译，最后执行。步骤如下：
 
-    git clone git://github.com/linux-china/ali-oss-java-cli.git
-    cd ali-oss-java-cli
-    mvn -DskipTests clean package
+    git clone git://github.com/denghp/ali-oss-tools
+    cd ali-oss-tools
+    mvn clean package
 
 接下来执行
 
@@ -19,7 +19,7 @@ Check out代码，编译，最后执行。步骤如下：
 即可进入控制台执行操作。
 打包分发：
 
-    mvn -DskipTests clean package assembly:assembly
+    mvn clean package assembly:assembly
 然后将target目录下tar.gz和zip文件提供下载即可。
 
 ### 开发指南
@@ -27,8 +27,6 @@ Check out代码，编译，最后执行。步骤如下：
 AliyunOssService负责和OSS进行交互，如获取OSS Object信息，上传文件等。
 由于OSS主要包含Bucket和Object，所以我们介入OSSUri类来标识Object，以后相关的操作都是基于object uri完成的。
 整体类图如下：
-
-![系统类图](https://github.com/linux-china/ali-oss-java-cli/wiki/assets/img/ali-oss-java-cli-class-diagram.png)
 
 ### 如何调试控制台程序
 OSS Console运行在terminal中，当然你也可以在IDEA中直接以debug方式运行程序，但是一些功能会缺失，如颜色显示，自动提示等，这个时候需在terminal中运行，但是我们也需要调试程序，
@@ -65,6 +63,4 @@ OSS Console运行在terminal中，当然你也可以在IDEA中直接以debug方�
 
 * List Objects能够显示匹配的object总数
 
-### 控制台截屏
-![OSS Console](https://github.com/linux-china/ali-oss-java-cli/wiki/assets/img/console_shot.png)
 
