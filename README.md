@@ -51,7 +51,7 @@ OSS Console运行在terminal中，当然你也可以在IDEA中直接以debug方�
 * 统计支持：dump bucket下的所有object的基本信息，然后进行Lucene索引，支持自定义查询。
 
 ### 设置Aliyun API Access Key
-config --id yourid --key yourkey --repository /home/user1/aliyun_oss
+  config --id yourid --key yourkey --repository /home/user1/aliyun_oss
 
 id和key分别对应Access Key的id和secret。--repository就是我们前面介绍的本地文件仓库，目录如果不存在会自动创建。 获取密钥的步骤很简单，登陆阿里云后，点击用“户中心”，然后选择“安全认证”，URL链接为：http://i.aliyun.com/access_key
 
@@ -69,7 +69,7 @@ bucket的URI: bucket的地址
 
 ###删除Bucket
 如果你想删除掉刚刚创建的bucket，执行：
-drop bucket_name
+  drop bucket_name
 
 这里注意，一个bucket还包含Object时，你是不能删除的，一定要确保bucket不在包含任何Object，你才可以删除该bucket.
 
@@ -77,24 +77,33 @@ drop bucket_name
  use bucket_name
 
 ###上传文件
-put --source /home/user1/demo.jpg  demo/
+  put --source /home/user1/demo.jpg  demo/
 
 ###上传文件&设置header
-put --source --zip --headers Cache-Control:max-age=1800&Content-Encoding:utf-8 /home/user1/demo.jpg  demo/
+  put --source --zip --headers Cache-Control:max-age=1800&Content-Encoding:utf-8 /home/user1/demo.jpg  demo/
 
 ###设置Object属性
-set --key Cache-Control --value max-age=604800 cms/demo2.png
-set --key tags --value "People Woman" cms/demo2.png
+  set --key Cache-Control --value max-age=604800 cms/demo2.png
+  set --key tags --value "People Woman" cms/demo2.png
 
 ###Bucket下的常用操作
 ls： 显示bucket或者虚拟目录下的object列表，支持前缀通配符（其他方式不支持），如ls demo* 表示显示所有以demo开头的Object，每次最多显示100条记录。
+
 file： 显示某一object的详情，如 file demo.jpg，则显示该object详细信息
+
 cat：显示Object内容，这里请确保你的文件为文本类型
+
 open：调用浏览器打开该Object
+
 rm: 删除Object，支持模糊匹配，和ls命令一样，如 rm demo.jpg, rm oss://bucket_name/demo.jpg 或者 rm backup/demo*
+
 cp: copy Object，如 cp demo.jpg second.jpg
+
 mv: 移动Object，如 mv demo.jpg second.jpg
+
 set: 设置Object属性， 如 set --key Content-Type --value image/jpeg demo.jpg 可以添加自定义属性，如 set --key tags --value people demo.jpg
+
 cd: 更改OSS的虚拟目录。如：cd path , 然后调用 ls，则只会显示指定目录前缀的object。 如果想要取消path选择，执行 cd 回车即可。
+
 pwd: 显示当前工作的虚拟目录信息。因为cd会更改当前工作的虚拟目录，所以我们有时需要调用该命令显示当前工作的虚拟目录信息。
 
