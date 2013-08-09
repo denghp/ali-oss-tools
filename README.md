@@ -80,7 +80,7 @@ bucket的URI: bucket的地址
      put --source /home/user1/demo.jpg  demo/
 
 ###上传文件&设置header
-     put --source --zip --headers Cache-Control:max-age=1800&Content-Encoding:utf-8 /home/user1/demo.jpg  demo/
+     put --zip --headers Cache-Control:max-age=7776000 --source /home/assets  demo/
 
 ###设置Object属性
      set --key Cache-Control --value max-age=604800 cms/demo2.png
