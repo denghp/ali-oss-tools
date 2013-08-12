@@ -85,7 +85,8 @@ bucket的URI: bucket的地址
 ###设置Object属性
      set --key Cache-Control --value max-age=604800 cms/demo2.png
      set --key tags --value "People Woman" cms/demo2.png
-
+###获取Object
+     getAll --dest /home/usename/assets/ --src assets/*
 ###Bucket下的常用操作
 ls： 显示bucket或者虚拟目录下的object列表，支持前缀通配符（其他方式不支持），如ls demo* 表示显示所有以demo开头的Object，每次最多显示100条记录。
 
